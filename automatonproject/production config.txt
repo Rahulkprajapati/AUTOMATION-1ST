@@ -1,0 +1,9 @@
+sudo cp -v -r -f * /root/root/productionunit
+
+if sudo docker ps | grep myproductionweb
+then
+echo "already running"
+else
+sudo docker run -dit -p 8081:80 -v /root/root/productionunit:/usr/local/apache2/htdocs --name myproductionweb httpd
+fi
+

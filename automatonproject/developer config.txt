@@ -1,0 +1,9 @@
+sudo cp -v -r -f * /root/root/testingunit
+
+if sudo docker ps | grep mytestingweb
+then 
+echo "already running"
+else
+sudo docker run -dit -p 8082:80 -v /root/root/testingunit:/usr/local/apache2/htdocs --name mytestingweb httpd
+fi
+
